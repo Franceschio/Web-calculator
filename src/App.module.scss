@@ -1,0 +1,28 @@
+.main {
+  min-height: 100vh;
+  position: relative;
+}
+
+.dark {
+  background-color: rgb(40, 40, 40);
+}
+
+.blueviolet {
+  background-color: rgb(91, 27, 123);
+}
+
+.classic {
+  background-color: rgb(176, 176, 176);
+}
+
+.monochrome {
+  background-color: #38424e;
+}
+
+@media screen and (min-width: 800px) {
+  .main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
