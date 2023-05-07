@@ -18,7 +18,39 @@ const Calculator = ({ theme }) => {
 
   const setBack = (value) => {
     if (backScreenNum) {
-      return;
+      switch (actualOp) {
+        case "/":
+          setBackScreenNum(
+            () => `${Number(backScreenNum) / Number(screenNum)}`
+          );
+          setActualOp(() => value);
+          setScreenNum(() => "0");
+          return;
+
+        case "x":
+          setBackScreenNum(
+            () => `${Number(backScreenNum) * Number(screenNum)}`
+          );
+          setActualOp(() => value);
+          setScreenNum(() => "0");
+          return;
+
+        case "+":
+          setBackScreenNum(
+            () => `${Number(backScreenNum) + Number(screenNum)}`
+          );
+          setActualOp(() => value);
+          setScreenNum(() => "0");
+          return;
+
+        case "-":
+          setBackScreenNum(
+            () => `${Number(backScreenNum) - Number(screenNum)}`
+          );
+          setActualOp(() => value);
+          setScreenNum(() => "0");
+          return;
+      }
     } else {
       result && setResult(() => null);
       setBackScreenNum(() => `${screenNum}`);
