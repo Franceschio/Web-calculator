@@ -60,7 +60,7 @@ const Calculator = ({ theme }) => {
   };
 
   const back = () => {
-    setResult(() => null);
+    result && setResult(() => null);
     setScreenNum((prev) => prev.slice(0, prev.length - 1));
   };
 
@@ -102,6 +102,7 @@ const Calculator = ({ theme }) => {
   };
 
   const negNum = () => {
+    result && setResult(() => null);
     screenNum !== "0" &&
       setScreenNum((prev) =>
         prev.includes("-") ? String(-1 * Number(prev)) : "-" + prev
