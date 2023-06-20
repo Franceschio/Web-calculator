@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./index.module.scss";
 
+// eslint-disable-next-line react/prop-types
 const Navbar = ({ theme, setTheme }) => {
   const [navbar, setNavbar] = useState(false);
 

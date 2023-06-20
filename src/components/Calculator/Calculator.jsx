@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import styles from "./index.module.scss";
 import { BsFillBackspaceFill } from "react-icons/bs";
 
+// eslint-disable-next-line react/prop-types
 const Calculator = ({ theme }) => {
   const [screenNum, setScreenNum] = useState("0");
 
