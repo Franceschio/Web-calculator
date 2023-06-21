@@ -111,7 +111,7 @@ const Calculator = ({ theme }) => {
   };
 
   useEffect(() => {
-    !screenNum ? setScreenNum(() => "0") : null;
+    !screenNum && setScreenNum(() => "0");
     if (result) {
       setBackScreenNum(() => null);
       setScreenNum(() => String(result));
