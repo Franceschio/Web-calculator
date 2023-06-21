@@ -12,10 +12,14 @@ const Calculator = ({ theme }) => {
 
   const [actualOp, setActualOp] = useState(null);
 
+  //Settare il numero principale
+
   const setNum = (value) => {
     result && setResult(() => null);
     setScreenNum((prev) => (prev !== "0" ? prev + value : value));
   };
+
+  //Settare il numero secondario
 
   const setBack = (value) => {
     if (backScreenNum) {
@@ -60,10 +64,13 @@ const Calculator = ({ theme }) => {
     }
   };
 
+  //Cancellare la singola cifra
   const back = () => {
     result && setResult(() => null);
     setScreenNum((prev) => prev.slice(0, prev.length - 1));
   };
+
+  //Azzerare tutto
 
   const deleteAll = () => {
     result && setResult(() => null);
@@ -72,15 +79,19 @@ const Calculator = ({ theme }) => {
     setActualOp(() => null);
   };
 
+  //equazione
+
   const equalTo = () => {
     if (actualOp) {
       switch (actualOp) {
         case "/":
-          screenNum === "0"
-            ? setResult(() => "Errore")
-            : backScreenNum === "0"
-            ? setResult(() => "0")
-            : setResult(() => Number(backScreenNum) / Number(screenNum));
+          if (screenNum === "0") {
+            setResult(() => "Errore");
+          } else {
+            backScreenNum === "0"
+              ? setResult(() => "0")
+              : setResult(() => Number(backScreenNum) / Number(screenNum));
+          }
           return;
 
         case "x":
@@ -102,6 +113,8 @@ const Calculator = ({ theme }) => {
     }
   };
 
+  //Rendere un numero negativo
+
   const negNum = () => {
     result && setResult(() => null);
     screenNum !== "0" &&
@@ -109,6 +122,8 @@ const Calculator = ({ theme }) => {
         prev.includes("-") ? String(-1 * Number(prev)) : "-" + prev
       );
   };
+
+  //Evitare bug legati al risultato e favoire il corretto funzinamento dell'applicativo
 
   useEffect(() => {
     !screenNum && setScreenNum(() => "0");
