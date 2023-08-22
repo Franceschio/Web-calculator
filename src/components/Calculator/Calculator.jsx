@@ -134,6 +134,8 @@ const Calculator = ({ theme }) => {
     }
   }, [screenNum, result]);
 
+  //Corpo dell'applicativo
+
   return (
     <div
       className={`${styles.Calculator} ${theme === "dark" && styles.dark} ${
